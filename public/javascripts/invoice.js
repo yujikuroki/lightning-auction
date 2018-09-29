@@ -4,6 +4,11 @@ const bidPrice = document.querySelector("#bid-price");
 bidButton.addEventListener("click", (e) => {
   e.preventDefault();
 
+  if (!bidPrice.value.match(/^[\d]+\.[\d]+$/)) {
+    bidPrice.classList.add("is-invalid")
+    return;
+  }
+  bidPrice.classList.remove("is-invalid")
   superagent
     .post(`${location.pathname}/invoice_addresses`)
     .send({ invoicePrice: bidPrice.value })
