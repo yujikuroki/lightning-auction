@@ -26,7 +26,7 @@ block content
             td= auction.start_at
           tr
             th 終了日時
-            td= auction.end_at
+            td#end-at= auction.end_at
           tr
             th 自動延長
             td なし
@@ -48,20 +48,21 @@ block content
               | 入札情報
         tbody
           tr
-            th= auction.status
-            td= (auction.status == "bidding") ? "入札中" : "終了"
+            th ステータス
+            td#status= (auction.status == "bidding") ? "入札中" : "終了"
           tr
             th 現在価格
             td#current-price 0.00000001 BTC
           tr
             th 最高入札者
             td hira
-      form
-        #bid-price-group.form-group
-          label 入札額
-          input#bid-price.form-control
-        input#bid-button.btn.btn-dark(value="入札")
+      if auction.status == "bidding"
+        form#bid-form
+          #bid-price-group.form-group
+            label 入札額
+            input#bid-price.form-control
+          input#bid-button.btn.btn-dark(value="入札")
 
-  script(src="/javascripts/invoice.js")
+        script(src="/javascripts/invoice.js")
   if auction.status == "bidding"
     script(src="/javascripts/update_price.js")
