@@ -52,12 +52,14 @@ block content
             td 入札受付中
           tr
             th 現在価格
-            td 10,000円
+            td 0.0001 BTC
           tr
             th 最高入札者
             td hira
       form
         .form-group
           label 入札額
-          input.form-control
-        input.btn.btn-dark(value="入札")
+          input#bid-price.form-control
+        input#bid-button.btn.btn-dark(value="入札")
+
+  script(src="/javascripts/invoice.js")
