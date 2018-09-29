@@ -23,10 +23,10 @@ block content
             td 1
           tr
             th 開始日時
-            td 2018-09-09 12:12
+            td= auction.start_at
           tr
             th 終了日時
-            td 2018-09-09 12:17
+            td= auction.end_at
           tr
             th 自動延長
             td なし
@@ -48,8 +48,8 @@ block content
               | 入札情報
         tbody
           tr
-            th 状態
-            td 入札受付中
+            th= auction.status
+            td= (auction.status == "bidding") ? "入札中" : "終了"
           tr
             th 現在価格
             td 0.0001 BTC

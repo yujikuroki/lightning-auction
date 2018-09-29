@@ -1,13 +1,17 @@
 var express = require('express');
 var router = express.Router();
 const { createInvoice } = require("../lib/btc_payment")
+const { Auctions, Auction } = require("../lib/auctions")
 
 router.get('/', function(req, res, next) {
-  res.render('items/index', { title: '出品物一覧' })
+  const auctions = new Auctions()
+  res.render('items/index', { title: '出品物一覧', auctions: auctions })
 });
 
 router.get('/:id/', function(req, res, next) {
-  res.render('items/show', { title: "自転車" })
+  const date = new Date(parseInt(req.params.id, 10))
+  const auction = new Auction(date)
+  res.render('items/show', { title: "ロードバイク", auction: auction })
 });
 
 router.post('/:id/invoice_addresses/', function(req, res, next) {
