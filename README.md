@@ -1,9 +1,10 @@
 # README
 
-
-# start app
+## start app
 
 ```
 npm install
-node app.js
+npm start
 ```
+
+http://localhost:3000
