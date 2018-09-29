@@ -52,7 +52,7 @@ block content
             td= (auction.status == "bidding") ? "入札中" : "終了"
           tr
             th 現在価格
-            td 0.0001 BTC
+            td#current-price 0.00000001 BTC
           tr
             th 最高入札者
             td hira
@@ -63,3 +63,5 @@ block content
         input#bid-button.btn.btn-dark(value="入札")
 
   script(src="/javascripts/invoice.js")
+  if auction.status == "bidding"
+    script(src="/javascripts/update_price.js")
