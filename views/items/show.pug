@@ -1,0 +1,63 @@
+extends ../layout
+
+block content
+  h1= title
+
+  .row
+    .col-sm
+      table.table
+        thead
+          tr
+            th.col(colspan="2")
+              | 出品情報
+        tbody
+          tr
+            th 商品画像
+            td
+              img(src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Orbea_Orca.jpg/800px-Orbea_Orca.jpg" width="300")
+          tr
+            th 状態
+            td 中古
+          tr
+            th 個数
+            td 1
+          tr
+            th 開始日時
+            td 2018-09-09 12:12
+          tr
+            th 終了日時
+            td 2018-09-09 12:17
+          tr
+            th 自動延長
+            td なし
+          tr
+            th 早期終了
+            td なし
+          tr
+            th コメント
+            td キズがあります
+          tr
+            th 出品者
+            td kuroki
+
+    .col-sm
+      table.table
+        thead
+          tr
+            th.col(colspan="2")
+              | 入札情報
+        tbody
+          tr
+            th 状態
+            td 入札受付中
+          tr
+            th 現在価格
+            td 10,000円
+          tr
+            th 最高入札者
+            td hira
+      form
+        .form-group
+          label 入札額
+          input.form-control
+        input.btn.btn-dark(value="入札")
