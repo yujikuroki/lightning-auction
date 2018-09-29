@@ -39,4 +39,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+require("./routes/module/mod_socket")
+
 module.exports = app;

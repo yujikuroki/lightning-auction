@@ -4,15 +4,7 @@ block content
   h1= title
 
   ul.list-group
-    li.list-group-item
-      a(href="/items/1")
-        | すごく魅力的な商品
-    li.list-group-item
-      a(href="/items/1")
-        | すごく魅力的な商品
-    li.list-group-item
-      a(href="/items/1")
-        | すごく魅力的な商品
-    li.list-group-item
-      a(href="/items/1")
-        | すごく魅力的な商品
+    each auction in auctions.items
+      li.list-group-item
+        a(href="/items/" + auction.id)
+          | ロードバイク
