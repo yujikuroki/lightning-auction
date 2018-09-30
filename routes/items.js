@@ -20,7 +20,7 @@ router.post('/:id/invoice_addresses/', function(req, res, next) {
   const loginId = req.cookies.loginId
   console.log(loginId)
   createInvoice(invoicePrice, invoice => {
-    invoices.add(loginId, invoice.id, invoicePrice, new Date((new Date()).getTime() + 5 * 60 * 1000));
+    invoices.add(loginId, invoice.id, invoicePrice, new Date(), new Date((new Date()).getTime() + 5 * 60 * 1000));
     res.json({
       invoiceUrl: invoice.url
     });
