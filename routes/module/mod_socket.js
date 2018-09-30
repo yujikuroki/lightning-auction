@@ -16,9 +16,9 @@ io.sockets.on('connection', function (socket) {
 setInterval(() => {
   const maxInvoice = getMaxInvoice()
   if (maxInvoice == null) {
-    io.emit('broadcast', { currentPrice: 0, currentBidder: null })
+    io.emit('broadcast', { currentPrice: 0, currentBidder: "なし" })
   } else {
-    io.emit('broadcast', { currentPrice: maxInvoice.price, currentBidder: "hira" })
+    io.emit('broadcast', { currentPrice: maxInvoice.price, currentBidder: maxInvoice.loginId })
   }
 }, 1000);
 

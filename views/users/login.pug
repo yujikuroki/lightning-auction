@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+  h1= title
+  
+  form
+    .form-group
+      label ID
+      input#login-id.form-control
+    .form-group
+      label パスワード
+      input.form-control
+    input#login-button.btn.btn-dark(value="ログイン")
+  script(src="/javascripts/login.js")
