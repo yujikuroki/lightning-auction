@@ -5,5 +5,5 @@ loginButton.addEventListener("click", (e) => {
   e.preventDefault()
 
   Cookies.set('loginId', loginId.value);
-  history.back();
+  location.href = document.referrer
 })
