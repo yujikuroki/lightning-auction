@@ -1,0 +1,9 @@
+extends ../layout
+
+block content
+  h1= title
+  form#bid-form(action="/refund/send" method="GET")
+    #bid-price-group.form-group
+      label Payment Request
+      input#bid-price.form-control(type="text" name="payreq")
+    input#bid-button.btn.btn-dark(type="submit", value="返金")
