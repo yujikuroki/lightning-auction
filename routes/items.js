@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const { createInvoice } = require("../lib/btc_payment")
 const { Auctions, Auction } = require("../lib/auctions")
+const invoices = require('../lib/invoices')
 
 router.get('/', function(req, res, next) {
   const auctions = new Auctions()
@@ -16,10 +17,10 @@ router.get('/:id/', function(req, res, next) {
 
 router.post('/:id/invoice_addresses/', function(req, res, next) {
   const invoicePrice = req.body.invoicePrice;
-  console.log(invoicePrice);
-  createInvoice(invoicePrice, invoiceUrl => {
+  createInvoice(invoicePrice, invoice => {
+    invoices.add(invoice.id, invoicePrice, new Date((new Date()).getTime() + 5 * 60 * 1000));
     res.json({
-      invoiceUrl: invoiceUrl
+      invoiceUrl: invoice.url
     });
   });
 });
