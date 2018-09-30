@@ -4,7 +4,7 @@ const bidPrice = document.querySelector("#bid-price");
 bidButton.addEventListener("click", (e) => {
   e.preventDefault();
 
-  if (Cookies.get("loginId") == undefined) {
+  if (Cookies.get("loginId") == undefined || Cookies.get("loginId") == "") {
     location.href = "/users/login"
     return
   }

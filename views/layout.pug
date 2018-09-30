@@ -15,7 +15,14 @@ html
     script(src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js")
   body
     nav.navbar.navbar-expand-lg.navbar-light.bg-light
-      a.nabvar-brand
-      a(href="/") Lightning Auction
+      ul.nav
+        li.nav-item
+          a.navbar-brand(href="/") Lightning Auction
+      ul#sessionView.nav.justify-content-end(style="display: none;")
+        li.nav-item
+          span#currentLoginId
+        li.nav-item
+          a.nav-link(href="/users/logout") ログアウト
+    script(src="/javascripts/session.js")
     .container
       block content
